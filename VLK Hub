@@ -1,28 +1,23 @@
-local Rayfield
-task.spawn(function()
-    Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-end)
-
-repeat task.wait() until Rayfield  -- Wait for Rayfield to load
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
    Name = "VLK Hub",
-   Icon = 0, 
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "VLK Scripts",
    LoadingSubtitle = "by Velkzie",
-   Theme = "Amethyst",
+   Theme = "Amethyst", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
    DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
 
    ConfigurationSaving = {
       Enabled = false,
-      FolderName = nil,
+      FolderName = nil, -- Create a custom folder for your hub/game
       FileName = "VLK Hub"
    },
 })
 
-local MainTab = Window:CreateTab("🏠Home", nil)
+local MainTab = Window:CreateTab("🏠Home", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("Main")
 
 Rayfield:Notify({
@@ -32,30 +27,41 @@ Rayfield:Notify({
    Image = nil,
 })
 
-local infYieldScript = game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source')
-local feAnimationsScript = game:HttpGet("https://raw.githubusercontent.com/ExploitFin/AquaMatrix/refs/heads/AquaMatrix/AquaMatrix")
-
 local Button = MainTab:CreateButton({
    Name = "Inf Yield",
    Callback = function()
-      loadstring(infYieldScript)()
+   loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
    end,
 })
 
 local Button = MainTab:CreateButton({
    Name = "FE Animations",
    Callback = function()
-      loadstring(feAnimationsScript)()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/AquaMatrix/refs/heads/AquaMatrix/AquaMatrix"))()
    end,
 })
 
-local TrollTab = Window:CreateTab("TrollFeatures🤡", nil)
+local TrollTab = Window:CreateTab("TrollFeatures🤡", nil) -- Title, Image
 local MainSection = TrollTab:CreateSection("Troll🤡")
 
 local Button = TrollTab:CreateButton({
    Name = "Jerk Off R15",
    Callback = function()
    loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
+   end,
+})
+
+local Button = TrollTab:CreateButton({
+   Name = "Jerk Off R6",
+   Callback = function()
+   loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Nameless Admin",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua"))()
    end,
 })
 
